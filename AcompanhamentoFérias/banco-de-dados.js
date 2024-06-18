@@ -14,6 +14,8 @@ function atualizarTabela() {
             <td>${funcionario.matricula}</td>
             <td>${funcionario.nomeCompleto}</td>
             <td>${funcionario.primeiroNome}</td>
+            <td>${funcionario.departamento}</td>
+            <td>${funcionario.setor}</td>
             <td>${funcionario.dataAquisicaoFerias}</td>
             <td>${funcionario.dataInicioFerias}</td>
             <td>${funcionario.dataRetornoFerias}</td>
@@ -31,7 +33,7 @@ function atualizarTabela() {
 function excluirFuncionario(index) {
     // Recuperar os funcionários armazenados localmente
     let funcionarios = JSON.parse(localStorage.getItem('funcionarios')) || [];
-    
+
     // Remover o funcionário da lista
     funcionarios.splice(index, 1);
 
