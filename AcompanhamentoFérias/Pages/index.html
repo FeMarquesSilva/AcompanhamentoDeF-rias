@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Férias</title>
+    <link rel="stylesheet" href="../Styles/index.css">
+</head>
+<body>
+    <header>
+        <h1 class="centro">Controle de Férias dos Funcionários</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="banco-de-dados.html">Banco de Dados</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="sidebar">
+            <div class="controls">
+                <label for="ano">Ano:</label>
+                <select id="ano"></select>
+                <label for="mes">Mês:</label>
+                <select id="mes"></select>
+                <label for="dept">Departamento:</label>
+                <select id="dept"></select>
+                <label for="setor">Setor:</label>
+                <select id="setpr"></select>
+                <button id="expandirDetalhes">Expandir Detalhes</button>
+                <button id="resumirDetalhes">Resumir Detalhes</button>
+            </div>
+        </div>
+        <div class="content">
+            <div id="calendarioContainer"></div>
+        </div>
+    </main>
+    <script src="../index.js"></script>
+</body>
+</html>

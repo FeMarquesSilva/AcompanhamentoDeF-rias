@@ -1,0 +1,163 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.centro {
+    text-align: center;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+}
+
+header nav {
+    margin-top: 1rem;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+}
+
+.content {
+    flex: 1;
+    padding: 1rem;
+    overflow-x: auto;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+}
+
+.controls button,
+.controls select {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#calendarioContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: max-content;
+}
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+.cabecalho,
+.cabecalho-mes,
+.cabecalho-dia {
+    display: flex;
+}
+
+.mes-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mes-header {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #2e3b4e;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.dia-container {
+    display: flex;
+}
+
+.dia-header {
+    display: inline-block;
+    text-align: center;
+    padding: 3.2px;
+    margin: 1.6px;
+    width: 32px;    
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ddd;
+}
+
+.funcionario {
+    display: flex;
+    align-items: center;
+}
+
+.funcionario-header {
+    width: 200px;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    background: #fff;
+    text-align: center;
+    margin-right: 0.5rem;
+}
+
+.dia {
+    display: inline-block;
+    text-align: center;
+    padding: 0.2rem;
+    margin: 0.1rem;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.dia.ferias {
+    background-color: #ffcccc;
+}
+
+.resumido .dia-container .dia {
+    display: none;
+}
+
+.resumido .dia,
+.resumido .dia-header {
+    width: 1px; /* Ajuste conforme necessário para a versão resumida */
+    color: #ddd;    
+    font-size: 0;    
+}   
