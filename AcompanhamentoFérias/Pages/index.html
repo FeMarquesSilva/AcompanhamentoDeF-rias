@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Férias</title>
     <link rel="stylesheet" href="../Styles/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script>
+        const SUPABASE_URL = 'https://znpqymdqxkqarhbnzrpg.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpucHF5bWRxeGtxYXJoYm56cnBnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg4Mjg5MjAsImV4cCI6MjAzNDQwNDkyMH0.2SfdJ2Wtqne8ma3QatR78jsAJsiMN9SefRWmOiOTsGY';
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+    </script>
 </head>
+
 <body>
     <header>
         <h1 class="centro">Controle de Férias dos Funcionários</h1>
@@ -31,6 +40,21 @@
                 <button id="expandirDetalhes">Expandir Detalhes</button>
                 <button id="resumirDetalhes">Resumir Detalhes</button>
             </div>
+            <div id="legenda">
+                <h3>Legenda:</h3>
+                <div class="legenda-item">
+                    <span class="legenda-cor ferias"></span> Férias
+                </div>
+                <div class="legenda-item">
+                    <span class="legenda-cor feriado"></span> Feriado
+                </div>
+                <div class="legenda-item">
+                    <span class="legenda-cor sabado"></span> Sábado
+                </div>
+                <div class="legenda-item">
+                    <span class="legenda-cor domingo"></span> Domingo
+                </div>
+            </div>
         </div>
         <div class="content">
             <div id="calendarioContainer"></div>
@@ -38,4 +62,5 @@
     </main>
     <script src="../index.js"></script>
 </body>
+
 </html>

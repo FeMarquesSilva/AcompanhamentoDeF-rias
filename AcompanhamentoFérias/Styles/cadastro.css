@@ -1,87 +1,89 @@
+/* Estilos gerais */
 body {
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    display: flex; /* Usa flexbox para layout em coluna */
+    flex-direction: column; /* Direção da flexbox é coluna */
+    font-family: Arial, sans-serif; /* Define a família de fontes */
+    margin: 0; /* Remove margens padrão */
 }
 
-.centro{
-    text-align: center;
+.centro {
+    text-align: center; /* Centraliza o texto */
 }
 
+/* Cabeçalho */
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 1rem 0;
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto branco */
+    padding: 1rem 0; /* Espaçamento interno no topo e embaixo */
 }
 
 header .logo {
-    text-align: center;
+    text-align: center; /* Centraliza o texto do logo */
 }
 
 header nav {
-    margin-top: 1rem;
+    margin-top: 1rem; /* Espaçamento superior */
 }
 
 header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
+    list-style: none; /* Remove estilos de lista */
+    display: flex; /* Usa flexbox para layout em linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
 }
 
 header nav ul li {
-    margin: 0 1rem;
+    margin: 0 1rem; /* Margens laterais dos itens de lista */
 }
 
 header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
+    color: white; /* Cor do texto branco */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 1.2rem; /* Define o tamanho da fonte */
 }
 
 header nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
 }
 
 /* Estilos para o formulário de cadastro */
 form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Largura máxima do formulário */
+    margin: 0 auto; /* Centraliza o formulário horizontalmente */
+    background: white; /* Cor de fundo branca */
+    padding: 2rem; /* Espaçamento interno */
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do formulário */
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Espaçamento inferior */
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    display: block; /* Exibe como bloco */
+    margin-bottom: 0.5rem; /* Espaçamento inferior */
+    font-weight: bold; /* Fonte em negrito */
 }
 
 .form-group input {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 100%; /* Largura completa */
+    padding: 0.5rem; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    border: 1px solid #ccc; /* Borda */
+    border-radius: 4px; /* Bordas arredondadas */
 }
 
 button[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white; /* Cor do texto branco */
+    padding: 0.75rem 1.5rem; /* Espaçamento interno */
+    font-size: 1rem; /* Tamanho da fonte */
+    border: none; /* Remove borda */
+    border-radius: 4px; /* Bordas arredondadas */
+    cursor: pointer; /* Cursor de ponteiro */
+    transition: background-color 0.3s; /* Transição suave na cor de fundo */
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Cor de fundo verde mais escuro ao passar o mouse */
 }

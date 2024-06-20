@@ -1,163 +1,316 @@
+/* Estilos gerais */
 body {
     display: flex;
+    /* Usa flexbox para layout em coluna */
     flex-direction: column;
+    /* Direção da flexbox é coluna */
     font-family: Arial, sans-serif;
+    /* Define a família de fontes */
     margin: 0;
+    /* Remove margens padrão */
 }
 
 .centro {
     text-align: center;
+    /* Centraliza o texto */
 }
 
+/* Cabeçalho */
 header {
     background-color: #4CAF50;
+    /* Cor de fundo verde */
     color: white;
+    /* Cor do texto branco */
     padding: 1rem 0;
+    /* Espaçamento interno no topo e embaixo */
 }
 
 header nav {
     margin-top: 1rem;
+    /* Espaçamento superior */
 }
 
 header nav ul {
     list-style: none;
+    /* Remove estilos de lista */
     display: flex;
+    /* Usa flexbox para layout em linha */
     justify-content: center;
+    /* Centraliza os itens horizontalmente */
 }
 
 header nav ul li {
     margin: 0 1rem;
+    /* Margens laterais dos itens de lista */
 }
 
 header nav ul li a {
     color: white;
+    /* Cor do texto branco */
     text-decoration: none;
+    /* Remove sublinhado */
     font-size: 1.2rem;
+    /* Define o tamanho da fonte */
 }
 
 header nav ul li a:hover {
     text-decoration: underline;
+    /* Adiciona sublinhado ao passar o mouse */
 }
 
+/* Seção principal */
 main {
     display: flex;
+    /* Usa flexbox para layout em linha */
     height: 75vh;
+    /* Altura da seção principal */
 }
 
+/* Barra lateral */
 .sidebar {
     width: 200px;
-    padding: 1rem;
+    /* Largura da barra lateral */
+    padding: 16px;
+    /* Espaçamento interno */
     background-color: #f4f4f4;
+    /* Cor de fundo cinza claro */
     border-right: 1px solid #ddd;
+    /* Borda direita */
 }
 
 .content {
     flex: 1;
+    /* O conteúdo principal ocupa o espaço restante */
     padding: 1rem;
+    /* Espaçamento interno */
     overflow-x: auto;
+    /* Adiciona rolagem horizontal se necessário */
 }
 
+/* Controles */
 .controls {
     display: flex;
+    /* Usa flexbox para layout em coluna */
     flex-direction: column;
+    /* Direção da flexbox é coluna */
 }
 
 .controls button,
 .controls select {
     margin-bottom: 1rem;
+    /* Espaçamento inferior */
     padding: 0.5rem 1rem;
+    /* Espaçamento interno */
     border: 1px solid #ccc;
+    /* Borda */
     border-radius: 4px;
+    /* Bordas arredondadas */
     cursor: pointer;
+    /* Cursor de ponteiro */
 }
 
+/* Legenda */
+#legenda {
+    margin-top: 1rem;
+    /* Espaçamento superior */
+}
+
+.legenda-item {
+    display: flex;
+    /* Usa flexbox para layout em linha */
+    align-items: center;
+    /* Alinha itens ao centro */
+    margin-bottom: 0.5rem;
+    /* Espaçamento inferior */
+}
+
+.legenda-cor {
+    width: 20px;
+    /* Largura do indicador de cor */
+    height: 20px;
+    /* Altura do indicador de cor */
+    margin-right: 0.5rem;
+    /* Margem direita */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+}
+
+.ferias {
+    background-color: #ffcccc;
+    /* Cor de fundo para dias de férias */
+}
+
+.feriado {
+    background-color: #d9534f;
+    /* Cor de fundo vermelho escuro para feriados */
+}
+
+.sabado {
+    background-color: #8b8b8b;
+    /* Cor de fundo azul claro para sábados */
+}
+
+.domingo {
+    background-color: #525252;
+    /* Cor de fundo azul escuro para domingos */
+}
+
+/* Contêiner do calendário */
 #calendarioContainer {
     display: flex;
+    /* Usa flexbox para layout em coluna */
     flex-direction: column;
+    /* Direção da flexbox é coluna */
     gap: 1rem;
+    /* Espaçamento entre elementos */
     width: max-content;
+    /* Largura baseada no conteúdo */
 }
 
+/* Tabela */
 .tabela {
     display: flex;
+    /* Usa flexbox para layout em coluna */
     flex-direction: column;
+    /* Direção da flexbox é coluna */
     width: max-content;
+    /* Largura baseada no conteúdo */
 }
 
 .cabecalho,
 .cabecalho-mes,
 .cabecalho-dia {
     display: flex;
+    /* Usa flexbox para layout em linha */
 }
 
 .mes-container {
     display: flex;
+    /* Usa flexbox para layout em coluna */
     flex-direction: column;
+    /* Direção da flexbox é coluna */
 }
 
 .mes-header {
     border: 1px solid #ccc;
+    /* Borda */
     border-radius: 4px;
+    /* Bordas arredondadas */
     background: #2e3b4e;
+    /* Cor de fundo */
     color: white;
+    /* Cor do texto branco */
     text-align: center;
+    /* Centraliza o texto */
     padding: 10px;
+    /* Espaçamento interno */
 }
 
 .dia-container {
     display: flex;
+    /* Usa flexbox para layout em linha */
 }
 
 .dia-header {
     display: inline-block;
+    /* Layout em bloco inline */
     text-align: center;
+    /* Centraliza o texto */
     padding: 3.2px;
+    /* Espaçamento interno */
     margin: 1.6px;
-    width: 32px;    
+    /* Margem */
+    width: 32px;
+    /* Largura do elemento */
     height: 32px;
+    /* Altura do elemento */
     line-height: 32px;
+    /* Altura da linha */
     border: 1px solid #ccc;
+    /* Borda */
     border-radius: 4px;
+    /* Bordas arredondadas */
     background-color: #ddd;
+    /* Cor de fundo */
 }
 
+/* Funcionário */
 .funcionario {
     display: flex;
+    /* Usa flexbox para layout em linha */
     align-items: center;
+    /* Alinha itens ao centro verticalmente */
 }
 
 .funcionario-header {
     width: 200px;
+    /* Largura do cabeçalho do funcionário */
     padding: 0.5rem;
+    /* Espaçamento interno */
     border: 1px solid #ccc;
+    /* Borda */
     background: #fff;
+    /* Cor de fundo branca */
     text-align: center;
+    /* Centraliza o texto */
     margin-right: 0.5rem;
+    /* Margem direita */
 }
 
+/* Dia */
 .dia {
     display: inline-block;
+    /* Layout em bloco inline */
     text-align: center;
+    /* Centraliza o texto */
     padding: 0.2rem;
+    /* Espaçamento interno */
     margin: 0.1rem;
+    /* Margem */
     width: 2rem;
+    /* Largura do elemento */
     height: 2rem;
+    /* Altura do elemento */
     line-height: 2rem;
+    /* Altura da linha */
     border: 1px solid #ccc;
+    /* Borda */
     border-radius: 4px;
+    /* Bordas arredondadas */
 }
 
 .dia.ferias {
     background-color: #ffcccc;
+    /* Cor de fundo para dias de férias */
 }
 
+.dia.feriado {
+    background-color: #d9534f;
+    /* Cor de fundo vermelho escuro para feriados */
+}
+
+.dia.sabado {
+    background-color: #8b8b8b;
+    /* Cor de fundo azul claro para sábados */
+}
+
+.dia.domingo {
+    background-color: #525252;
+    /* Cor de fundo azul escuro para domingos */
+}
+
+/* Layout resumido */
 .resumido .dia-container .dia {
     display: none;
+    /* Esconde os dias no layout resumido */
 }
 
 .resumido .dia,
 .resumido .dia-header {
-    width: 1px; /* Ajuste conforme necessário para a versão resumida */
-    color: #ddd;    
-    font-size: 0;    
-}   
+    width: 1px;
+    /* Ajusta a largura para a versão resumida */
+    color: #ddd;
+    /* Cor do texto */
+    font-size: 0;
+    /* Reduz o tamanho da fonte */
+}
