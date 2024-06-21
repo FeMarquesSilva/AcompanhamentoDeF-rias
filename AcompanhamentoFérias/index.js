@@ -1,4 +1,47 @@
-document.addEventListener('DOMContentLoaded', function () {
+// Função para verificar autenticação
+function isAuthenticated() {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        window.location.href = 'login.html';
+        return false;
+    }
+    return true;
+}
+
+isAuthenticated();
+
+// Função para obter o ID do usuário logado
+async function obterIdUsuarioLogado() {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        window.location.href = 'login.html';
+        return null;
+    }
+
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    const email = payload.email;
+
+    const { data, error } = await supabaseClient
+        .from('usuarios')
+        .select('id')
+        .eq('email', email)
+        .single();
+
+    if (error) {
+        console.error('Erro ao buscar ID do usuário:', error);
+        return null;
+    }
+
+    return data.id;
+}
+
+// Função para logout
+function logout() {
+    localStorage.removeItem('authToken');
+    window.location.href = 'login.html';
+}
+
+document.addEventListener('DOMContentLoaded', async function () {
     const calendarioContainer = document.getElementById('calendarioContainer');
     const anoSelect = document.getElementById('ano');
     const mesSelect = document.getElementById('mes');
@@ -6,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const setorSelect = document.getElementById('setor');
     const expandirDetalhesBtn = document.getElementById('expandirDetalhes');
     const resumirDetalhesBtn = document.getElementById('resumirDetalhes');
+    const sair = document.getElementById('logoutBtn');
 
     let anoAtual = new Date().getFullYear();
     let mesAtual = new Date().getMonth(); // Mês atual (0 a 11)
@@ -21,9 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     async function obterFuncionariosDoBancoDeDados() {
+        const userId = await obterIdUsuarioLogado();
+        if (!userId) {
+            return [];
+        }
+
         const { data, error } = await supabaseClient
             .from('funcionarios')
-            .select('*');
+            .select('*')
+            .eq('idProprietario', userId);
 
         if (error) {
             console.error('Erro ao buscar funcionários:', error);
@@ -134,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 funcionariosAgrupados.set(chaveFuncionario, { nome: chaveFuncionario, datas: [] });
             }
             const funcionarioAgrupado = funcionariosAgrupados.get(chaveFuncionario);
-            
+
             funcionarioAgrupado.datas.push({ inicio: funcionario.dataIniFerias, retorno: funcionario.dataFimFerias });
         });
 
@@ -219,6 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
     mesSelect.addEventListener('change', onChangeAnoMes);
     deptSelect.addEventListener('change', onChangeDeptSetor);
     setorSelect.addEventListener('change', onChangeDeptSetor);
+    sair.addEventListener('click', logout);
 
     inicializarPagina();
 });

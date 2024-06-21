@@ -1,8 +1,35 @@
+// Função para verificar autenticação
+function isAuthenticated() {
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        return window.location.href = 'login.html';
+    }
+}
+
+isAuthenticated();
+
+// Obtendo o id do usuario logado
+async function obterIdUsuarioLogado() {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+        window.location.href = 'login.html';
+        return null;
+    }
+    return parseInt(userId, 10);
+}
+
 // Função para buscar e atualizar a tabela com os dados do Supabase
 async function atualizarTabela() {
+    const userId = await obterIdUsuarioLogado();
+    if (!userId) {
+        console.error('Erro ao obter ID do usuário logado.');
+        return;
+    }
+
     const { data, error } = await supabaseClient
         .from('funcionarios')
-        .select('*');
+        .select('*')
+        .eq('idProprietario', userId); // Filtra pelo ID do proprietário
 
     if (error) {
         console.error('Erro ao buscar funcionários:', error.message);
@@ -12,7 +39,6 @@ async function atualizarTabela() {
     const tbody = document.querySelector('#tabelaFuncionarios tbody');
     tbody.innerHTML = '';
 
-    // Iterar sobre os funcionários retornados e adicionar linhas na tabela
     data.forEach(funcionario => {
         const tr = document.createElement('tr');
 
@@ -52,13 +78,11 @@ async function excluirFuncionario(id) {
         return;
     }
 
-    // Atualizar a tabela após a exclusão
     await atualizarTabela();
 }
 
 // Função para editar um funcionário
 async function editarFuncionario(id) {
-    // Buscar o funcionário pelo ID
     const { data, error } = await supabaseClient
         .from('funcionarios')
         .select('*')
@@ -70,7 +94,6 @@ async function editarFuncionario(id) {
         return;
     }
 
-    // Preencher o formulário de edição com os dados do funcionário
     const funcionario = data;
     document.getElementById('editIndex').value = id;
     document.getElementById('editMatricula').value = funcionario.matricula;
@@ -82,7 +105,6 @@ async function editarFuncionario(id) {
     document.getElementById('editDataInicioFerias').value = funcionario.dataIniFerias;
     document.getElementById('editDataRetornoFerias').value = funcionario.dataFimFerias;
 
-    // Exibir o formulário de edição
     document.getElementById('formEdicao').style.display = 'block';
 }
 
@@ -117,10 +139,7 @@ async function salvarEdicao() {
         return;
     }
 
-    // Ocultar o formulário de edição
     document.getElementById('formEdicao').style.display = 'none';
-
-    // Atualizar a tabela após a edição
     await atualizarTabela();
 }
 

@@ -314,3 +314,14 @@ main {
     font-size: 0;
     /* Reduz o tamanho da fonte */
 }
+
+.sair{
+    background-color: #d9534f;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    width: 50px;
+    &:hover{
+        background-color: #c97875;
+    }
+}

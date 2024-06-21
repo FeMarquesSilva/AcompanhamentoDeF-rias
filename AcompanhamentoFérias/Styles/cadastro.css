@@ -49,7 +49,8 @@ header nav ul li a:hover {
 form {
     max-width: 600px; /* Largura máxima do formulário */
     margin: 0 auto; /* Centraliza o formulário horizontalmente */
-    background: white; /* Cor de fundo branca */
+    margin-bottom: 35px;
+    background: #d5edd6; /* Cor de fundo branca */
     padding: 2rem; /* Espaçamento interno */
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ao redor do formulário */

@@ -1,3 +1,12 @@
+async function obterIdUsuarioLogado() {
+    const userId = localStorage.getItem('userId');
+    if (!userId) {
+        window.location.href = 'login.html';
+        return null;
+    }
+    return parseInt(userId, 10);
+}
+
 // Função para formatar a data no formato DD/MM/AAAA - não utilizar
 function formatarData(data) {
     const partes = data.split('-'); // Supondo que as datas vêm no formato "AAAA-MM-DD"
@@ -13,6 +22,12 @@ function formatarMatricula(matricula) {
 // Evento de submissão do formulário de cadastro
 document.getElementById('cadastroForm').addEventListener('submit', async function (event) {
     event.preventDefault();
+
+    const userId = await obterIdUsuarioLogado(); // Obter o ID do usuário logado
+    if (!userId) {
+        alert('Erro ao obter o ID do usuário logado.');
+        return;
+    }
 
     // Obter os valores dos campos do formulário
     const matricula = formatarMatricula(document.getElementById('matricula').value);
@@ -33,25 +48,15 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
         setor,
         dataAquisicao,
         dataIniFerias,
-        dataFimFerias
+        dataFimFerias,
+        idProprietario: userId
     };
 
     try {
         // Salvar os dados do funcionário no Supabase
         const { data, error } = await supabaseClient
             .from('funcionarios')
-            .insert([
-                {
-                    matricula: matricula,
-                    nomeCompleto: nomeCompleto,
-                    nomePrimeiro: nomePrimeiro, // Corrigido para nomePrimeiro
-                    departamento: departamento,
-                    setor: setor,
-                    dataAquisicao: dataAquisicao, // Corrigido para dataAquisicao
-                    dataIniFerias: dataIniFerias, // Corrigido para dataIniFerias
-                    dataFimFerias: dataFimFerias // Corrigido para dataFimFerias
-                }
-            ]);
+            .insert([funcionario]);
 
         // Limpar o formulário após a submissão
         document.getElementById('cadastroForm').reset();
@@ -66,5 +71,4 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
         console.error(err);
         alert('Erro ao conectar com o Supabase.');
     }
-
 });
